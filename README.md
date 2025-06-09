@@ -32,8 +32,9 @@ A simple music programming language for defining drum patterns and structures.
 
 - Patterns are defined with a name followed by a set of beats inside braces {}.
 - Each beat is represented by a single line inside the braces.
-- Each line can contain multiple letters, each representing a different drum instrument that is hit on that beat.
-- The - character can be used to represent an empty beat.
+- Each line inside a pattern can contain multiple groups of letters separated by spaces. Each letter represents a drum instrument that is hit on that beat, and each group represents a bar in the pattern.
+
+- The `-` character can be used to represent a rest or an empty beat within a bar.
 - A pattern can call other patterns, allowing for the creation of complex rhythms.
 
 ### Playing Patterns
@@ -60,25 +61,21 @@ A simple music programming language for defining drum patterns and structures.
 
 ```shell
 # Set the tempo to 117 BPM
-BPM 117
+BPM 90
 
 # Set the number of bars to 16
 bars 16
 
-# Define the 'Verse' pattern
+# Define the 'Verse' patternfile
 Verse {
-  K-H-  // Kick and Hi-Hat on first beat
-  HS--  // Hi-Hat and Snare on second beat
-  K-H-  // Kick and Hi-Hat on third beat
-  ----  // Rest on fourth beat
+  HK H HS H
+  HK H HS H
 }
 
 # Define the 'Chorus' pattern
 Chorus {
-  KSHK  // Kick, Snare and Hi-Hat on first and fourth beat
-  HS--S // Hi-Hat and Snare on second beat, Snare on fourth beat
-  KSHK  // Kick, Snare and Hi-Hat on first and fourth beat
-  HS--S // Hi-Hat and Snare on second beat, Snare on fourth beat
+    HK HK HS H
+    HK HK HS H
 }
 
 # Play the patterns in the following order
